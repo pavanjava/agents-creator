@@ -1,0 +1,11 @@
+agents:
+  - name: "Web Search Agent"
+    model:
+      type: "OpenAIChat"
+      id: "gpt-4o"
+    tools:
+      - type: "DuckDuckGo"
+      - type: "Yfinance"
+    add_history_to_messages: true
+    markdown: false
+    debug_mode: true
