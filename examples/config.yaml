@@ -1,11 +1,42 @@
-agents:
-  - name: "Web Search Agent"
+agent:
+  - name: "Supervisor Agent"
     model:
       type: "OpenAIChat"
       id: "gpt-4o"
     tools:
       - type: "DuckDuckGo"
       - type: "Yfinance"
-    add_history_to_messages: true
+    memory:
+      add_history_to_messages: true
+      num_history_responses: 3
     markdown: false
     debug_mode: true
+    reasoning: true
+    team:
+      - agents:
+          - name: "Search Agent"
+            model:
+              type: "OpenAIChat"
+              id: "gpt-4o"
+            tools:
+              - type: "DuckDuckGo"
+              - type: "Yfinance"
+            memory:
+              add_history_to_messages: true
+              num_history_responses: 3
+            markdown: false
+            debug_mode: true
+            reasoning: true
+          - name: "Writer Agent"
+            model:
+              type: "OpenAIChat"
+              id: "gpt-4o"
+            tools:
+              - type: "DuckDuckGo"
+              - type: "Yfinance"
+            memory:
+              add_history_to_messages: true
+              num_history_responses: 3
+            markdown: false
+            debug_mode: true
+            reasoning: true
